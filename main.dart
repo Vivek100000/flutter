@@ -14,7 +14,21 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('My First App'),
         ),
-        body: Text('This is my default text!'),
+        body: Column(children: [
+          Text('the question is'),
+          RaisedButton(
+            child: Text('answer1'),
+            onPressed: null,
+          ),
+          RaisedButton(
+            child: Text('answer2'),
+            onPressed: null,
+          ),
+          RaisedButton(
+            child: Text('answer3'),
+            onPressed: null,
+          ),
+        ]),
       ),
     );
   }
