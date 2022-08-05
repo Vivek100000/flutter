@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  var options = ['pig', 'cat', 'dog'];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,18 +17,18 @@ class MyApp extends StatelessWidget {
           title: Text('My First App'),
         ),
         body: Column(children: [
-          Text('the question is'),
-          RaisedButton(
-            child: Text('answer1'),
-            onPressed: null,
+          Text('what is your favourite animal'),
+          ElevatedButton(
+            child: Text(options.elementAt(0)),
+            onPressed: () => print('choice 1 is selected'),
           ),
-          RaisedButton(
-            child: Text('answer2'),
-            onPressed: null,
+          ElevatedButton(
+            child: Text(options.elementAt(1)),
+            onPressed: () => print('choice 2 is selected'),
           ),
-          RaisedButton(
-            child: Text('answer3'),
-            onPressed: null,
+          ElevatedButton(
+            child: Text(options.elementAt(2)),
+            onPressed: () => print('choice 3 is selected'),
           ),
         ]),
       ),
