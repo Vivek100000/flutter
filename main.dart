@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import './question.dart';
 import './answer.dart';
-import './answer2.dart';
-import './answer3.dart';
+//import './answer2.dart';
+//import './answer3.dart';
 // void main() {
 //   runApp(MyApp());
 // }
