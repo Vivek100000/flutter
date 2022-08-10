@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-
+import './question.dart';
+import './answer.dart';
+import './answer2.dart';
+import './answer3.dart';
 // void main() {
 //   runApp(MyApp());
 // }
@@ -16,18 +19,29 @@ class MyApp extends StatefulWidget {
 class Myappstate extends State<MyApp> {
   var options = ['pig', 'cat', 'dog'];
   var questions = [
-    'favourite animal?',
-    'most loyal animal among them?',
-    'thanks for the assesment'
+    {
+      'questionText': 'What\'s your favorite color?',
+      'answers': ['Black', 'Red', 'Green', 'White'],
+    },
+    {
+      'questionText': 'What\'s your favorite animal?',
+      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+    },
+    {
+      'questionText': 'Who\'s your favorite instructor?',
+      'answers': ['Max', 'manchanda', 'ashish garg', 'dubey'],
+    },
   ];
-  var questionIndex = 0;
-  void func() {
-    print('choice 3 is selected');
+
+  void _answerfunction() {
+    print('choice 1 is selected');
     setState(() {
       questionIndex = questionIndex + 1;
     });
     print(questionIndex);
   }
+
+  var questionIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -37,19 +51,51 @@ class Myappstate extends State<MyApp> {
           title: Text('My First App'),
         ),
         body: Column(children: [
-          Text(questions[questionIndex]),
-          ElevatedButton(
+          Questions(questions[questionIndex]['questionText']),
+          /*ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.blue)),
             child: Text(options.elementAt(0)),
-            onPressed: func,
-          ),
-          ElevatedButton(
+            onPressed: () {
+              print('choice 1 is selected');
+              setState(() {
+                questionIndex = questionIndex + 1;
+              });
+              print(questionIndex);
+            },
+          )*/
+          //Answer(_answerfunction, 'Answer1'),
+          /*ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                    Color.fromARGB(255, 75, 183, 22))),
             child: Text(options.elementAt(1)),
-            onPressed: func,
-          ),
-          ElevatedButton(
+            onPressed: () {
+              print('choice  2 is selected');
+              setState(() {
+                questionIndex = questionIndex + 1;
+              });
+              print(questionIndex);
+            },
+          )*/
+          //Answer2(_answerfunction, 'Answer2'),
+          /*ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                    Color.fromARGB(226, 28, 187, 193))),
             child: Text(options.elementAt(2)),
-            onPressed: func,
-          ),
+            onPressed: () {
+              print('choice 3 is selected');
+              setState(() {
+                questionIndex = questionIndex + 1;
+              });
+              print(questionIndex);
+            }*/
+          //Answer3(_answerfunction, 'Answer3'),
+          ...(questions[questionIndex]['answers'] as List<String>)
+              .map((answer) {
+            return Answer(_answerfunction, answer);
+          }).toList()
         ]),
       ),
     );
