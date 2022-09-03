@@ -61,6 +61,13 @@ class Myappstate extends State<MyApp> {
     print(questionIndex);
   }
 
+  void _resetQuiz() {
+    setState(() {
+      questionIndex = 0;
+      total_score = 0;
+    });
+  }
+
   var questionIndex = 0;
   var total_score = 0;
   @override
@@ -119,7 +126,7 @@ class Myappstate extends State<MyApp> {
                   return Answer(_answerfunction, answer);
                 }).toList()
               ])*/
-            : result(total_score),
+            : result(total_score, _resetQuiz),
       ),
     );
   }

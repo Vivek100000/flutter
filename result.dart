@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class result extends StatelessWidget {
   final int total_score;
-  result(this.total_score);
+  final Function resetQuiz;
+  result(this.total_score, this.resetQuiz);
   String get resultPhrase {
     var resultText = 'you did it';
     if (total_score > 20) {
@@ -17,9 +18,20 @@ class result extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        resultPhrase,
-        style: TextStyle(fontSize: 24, fontWeight: FontWeight.normal),
+      child: Column(
+        children: [
+          Text(
+            resultPhrase,
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.normal),
+          ),
+          ElevatedButton(
+              onPressed: resetQuiz,
+              child: Text('restart quiz!'),
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.orange),
+                  foregroundColor: MaterialStateProperty.all(
+                      Color.fromARGB(222, 23, 236, 8))))
+        ],
       ),
     );
   }
