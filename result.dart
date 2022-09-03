@@ -32,7 +32,7 @@ class result extends StatelessWidget {
                   foregroundColor: MaterialStateProperty.all(
                       Color.fromARGB(222, 23, 236, 8))))
         ],
-      ),
+      ), //
     );
   }
 }
